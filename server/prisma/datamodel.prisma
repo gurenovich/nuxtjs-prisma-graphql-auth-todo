@@ -1,0 +1,13 @@
+type User {
+  id: ID! @id
+  login: String! @unique
+  password: String!
+  todoes: [Todo!]!
+}
+
+type Todo {
+  id: ID! @id
+  title: String!
+  done: Boolean! @default(value: false)
+  author: User! @relation(link: INLINE)
+}

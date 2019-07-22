@@ -1,0 +1,23 @@
+module.exports = `
+  type User {
+    id: ID!
+    login: String!
+    password: String!
+    todoes: [Todo!]!
+  }
+
+  type Query {
+    users: [User!]!
+    me: User
+  }
+
+  type Mutation {
+    login(login: String!, password: String!): AuthPayload
+    register(login: String!, password: String!): AuthPayload
+  }
+
+  type AuthPayload {
+    token: String!
+    user: User!
+  }
+`
